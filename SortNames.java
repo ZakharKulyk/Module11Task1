@@ -9,12 +9,15 @@ public class SortNames {
 
         String[] names = {"Zakhar", "Peter", "Roman", "julia"};
         ArrayList<String> ListOfNames = new ArrayList<>(Arrays.asList(names));
-        String collect = IntStream.range(0, ListOfNames.size())
+        System.out.println(orderName(ListOfNames));
+
+    }
+
+    static public String orderName(List names) {
+        String collect = IntStream.range(0, names.size())
                 .filter(index -> index % 2 == 0)
-                .mapToObj(i -> (i + 1) + "." + ListOfNames.get(i))
+                .mapToObj(i -> (i + 1) + "." + names.get(i))
                 .collect(Collectors.joining(","));
-        System.out.println(collect);
-
-
+        return collect;
     }
 }
